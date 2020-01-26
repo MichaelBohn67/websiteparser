@@ -29,7 +29,13 @@ public class ParserService {
         Integer years = 1;
         List<InterestRatesModel> interestRatesModelList = new ArrayList<>();
         for (String url : urlList) {
-
+            String terms = "1";
+            if(url.contains("2-jahre")){
+                terms = "2";
+            }
+            if(url.contains("3-jahre")){
+                terms = "3";
+            }
             Document doc = Jsoup.connect(url).userAgent("Mozilla").maxBodySize(0).get();
             int row = 1;
             //System.out.println(doc.getAllElements());
@@ -40,6 +46,7 @@ public class ParserService {
                 interestRatesModel.setBankName(bankName);
                 Elements country = element.getElementsByClass("fgv_angebot_flag");
                 String minmax = element.getElementsByClass("vl_term_item_value").text();
+                String product = element.getElementsByClass("fgv_angebot_product_name").text();
                 Double intRate = Double.valueOf(element.getElementsByClass("fgv_angebot_zinssatz").text()
                         .replace("%", "")
                         .replace("bis", "")
@@ -49,6 +56,8 @@ public class ParserService {
                 interestRatesModel.setInterestPercent(interestRate.toPlainString());
                 String land = getCountryFromFlag(country);
                 interestRatesModel.setCountry(land);
+                interestRatesModel.setTerms(terms);
+                interestRatesModel.setProduct(product);
                 System.out.println(row + " " + bankName  + " - "+land+ " - " + minmax + " - " + interestRate.doubleValue() + " " + years);
                 row++;
                 interestRatesModelList.add(interestRatesModel);

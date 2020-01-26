@@ -8,4 +8,6 @@ public class InterestRatesModel {
     private String bankName;
     private String interestPercent;
     private String country;
+    private String product;
+    private String terms;
 }

@@ -31,9 +31,12 @@ public class InterestRatesView extends Div implements BeforeEnterObserver {
         System.out.println(interestRatesModels.size());
         ListDataProvider dp = DataProvider.ofCollection(interestRatesModels);
         interestRatesModelGrid.setDataProvider(dp);
-        interestRatesModelGrid.setColumns("bankName","interestPercent","country");
+        interestRatesModelGrid.setColumns("bankName","product","terms","interestPercent","country");
         interestRatesModelGrid.setHeightByRows(true);
         Grid.Column<InterestRatesModel> column = interestRatesModelGrid.getColumnByKey("bankName");
+        if(column.getElement().getText().contains("Varengold")){
+            column.getElement().setAttribute("color","red");
+        }
         add(interestRatesModelGrid);
     }
 

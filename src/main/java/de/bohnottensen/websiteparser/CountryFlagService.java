@@ -35,10 +35,7 @@ class CountryFlagService {
         else if (bankFlag.toString().contains("flag-lt")) land = "Litauen";
         else if (bankFlag.toString().contains("flag-pl")) land = "Polen";
         else if (bankFlag.toString().contains("flag-ie")) land = "Irland Republik";
-        else {
-            System.out.println(bankFlag);
-            land = "Europa";
-        }
+        else land = "Europa";
         return land;
     }
 }

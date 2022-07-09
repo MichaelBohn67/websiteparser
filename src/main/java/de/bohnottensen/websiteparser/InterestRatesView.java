@@ -18,7 +18,7 @@ import java.util.List;
 @Route("")
 public class InterestRatesView extends Div implements BeforeEnterObserver {
 
-    private ParserService parserService;
+    private final ParserService parserService;
 
     public InterestRatesView(ParserService parserService) {
         this.parserService = parserService;

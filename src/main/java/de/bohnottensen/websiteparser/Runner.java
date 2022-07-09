@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Runner implements CommandLineRunner {
 
-    ParserService parserService;
+    private ParserService parserService;
     
     public Runner(ParserService parserService) {
         this.parserService = parserService;
@@ -14,6 +14,6 @@ public class Runner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        //parserService.parseSite();
+        parserService.parseSite();
     }
 }

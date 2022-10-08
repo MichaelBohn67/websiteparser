@@ -16,16 +16,18 @@ class CountryFlagServiceTest {
     @Test
     void givenFlagEngThenReturnStringEN() {
         when(elementsMock.toString()).thenReturn("flag-gb");
-        String result = service.getCountryFromFlag(elementsMock);
-        assertThat(result, is("Vereinigtes Königreich von Großbritannien und Nordirland"));
 
+        String result = CountryFlagService.getCountryFromFlag(elementsMock);
+
+        assertThat(result, is("Vereinigtes Königreich von Großbritannien und Nordirland"));
     }
 
     @Test
     void givenFlagDeuThenReturnStringDE() {
         when(elementsMock.toString()).thenReturn("flag-de");
-        String result = service.getCountryFromFlag(elementsMock);
-        assertThat(result, is("Deutschland"));
 
+        String result = CountryFlagService.getCountryFromFlag(elementsMock);
+
+        assertThat(result, is("Deutschland"));
     }
 }

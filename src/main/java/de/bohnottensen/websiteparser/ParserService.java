@@ -14,11 +14,9 @@ import java.util.List;
 public class ParserService {
 
     private final List<String> urlList = new ArrayList<>(3);
-    private final CountryFlagService countryFlagService;
     private final InterestRatesModelService interestRatesModelService;
 
-    public ParserService(CountryFlagService countryFlagService, InterestRatesModelService interestRatesModelService) throws IOException {
-        this.countryFlagService = countryFlagService;
+    public ParserService(InterestRatesModelService interestRatesModelService) {
         this.interestRatesModelService = interestRatesModelService;
         urlList.add("https://www.kritische-anleger.de/festgeld-vergleich/1-jahr/");
         urlList.add("https://www.kritische-anleger.de/festgeld-vergleich/2-jahre/");

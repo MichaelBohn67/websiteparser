@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Runner implements CommandLineRunner {
 
-    private ParserService parserService;
+    private final ParserService parserService;
     
     public Runner(ParserService parserService) {
         this.parserService = parserService;

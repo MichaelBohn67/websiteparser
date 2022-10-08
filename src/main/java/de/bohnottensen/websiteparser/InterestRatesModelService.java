@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 @Service
 class InterestRatesModelService {
 
+    private final CountryFlagService service;
+
     static InterestRatesModel createInterestRateModel(Element element, String terms) {
         InterestRatesModel interestRatesModel = new InterestRatesModel();
         String bankName = element.getElementsByClass("fgv_angebot_bank_name").text();
@@ -25,8 +27,7 @@ class InterestRatesModelService {
 
         BigDecimal interestRate = BigDecimal.valueOf(intRate);
         interestRatesModel.setInterestPercent(interestRate.toPlainString());
-        String land = CountryFlagService.getCountryFromFlag(country);
-        interestRatesModel.setCountry(land);
+        interestRatesModel.setCountry(CountryFlagService.getCountryFromFlag(country));
         interestRatesModel.setTerms(terms);
         interestRatesModel.setProduct(product);
         return interestRatesModel;

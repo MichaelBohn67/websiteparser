@@ -14,7 +14,7 @@ class WebsiteParserApplicationTests {
     WebsiteParserApplication websiteParserApplication;
 
     @Test
-    void contextLoads() throws Exception {
+    void contextLoads() {
         assertThat(websiteParserApplication).isNotNull();
     }
 
